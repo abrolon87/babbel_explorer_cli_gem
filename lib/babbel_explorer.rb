@@ -1,6 +1,2 @@
-require "babbel_explorer/version"
-
-module BabbelExplorer
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "babbel_explorer/version"
+require_relative './babbel_explorer/cli'
