@@ -18,7 +18,13 @@ class BabbelExplorer::CLI
   end
   
   def country_list
-    puts "these are the countries"   
+    puts "these are the countries"  
+    if input.to_i > 0
+      puts @country[input.to_i-1]
+    else  
+      puts "invalid selection"
+      country_list
+    end
   end
 
   def exit

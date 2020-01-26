@@ -6,4 +6,6 @@ Display list of countries
 
 "Choose a country by its corresponding number"
 
-
+<!-- countries.each.with_index(1) do |country, i|
+  puts "#{i}. #{country}
+   -->
