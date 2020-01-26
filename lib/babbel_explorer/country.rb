@@ -6,8 +6,8 @@ class BabbelExplorer::Country
     #return all countries
   end
   
-  def self.scrape
-    doc = Nokogiri::HTML(open(https://www.cia.gov))
-    binding.pry
-  end
+  # def self.scrape
+  #   doc = Nokogiri::HTML(open(https://www.cia.gov))
+  #   binding.pry
+  # end
 end
