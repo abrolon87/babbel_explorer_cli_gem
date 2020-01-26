@@ -1,8 +1,8 @@
-#!/usr/bin/env ruby # "shebang line" so that the file is read using ruby
+#!/usr/bin/env ruby 
 
 
 require './lib/babbel_explorer'
-require './lib/babbel_explorer/country'
+#require './lib/babbel_explorer/country'
 
 BabbelExplorer::CLI.new.call
 
