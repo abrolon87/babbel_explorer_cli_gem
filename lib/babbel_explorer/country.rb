@@ -1,13 +1,24 @@
 class BabbelExplorer::Country
   attr_accessor :name
 
+  @@all = []
+
+  # def initialize(name)
+  #   self.name = name 
+  #   #self.languages = []
+  #   save
+  # end
 
   def self.all
-    #return all countries
+    @@all#return all countries
   end
   
-  # def self.scrape
-  #   doc = Nokogiri::HTML(open(https://www.cia.gov))
-  #   binding.pry
-  # end
+  def save 
+    @@all << self
+  end 
+
+  def self.create(name)
+    country = self.new(name) 
+    save
+  end
 end

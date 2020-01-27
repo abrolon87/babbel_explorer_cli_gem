@@ -1,0 +1,4 @@
+class BabbelExplorer::Scraper
+
+
+end
