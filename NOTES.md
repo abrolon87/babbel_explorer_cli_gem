@@ -18,26 +18,17 @@ Classes
   region(?maybe in a later version?)
   scraper
 
-  #    
-#     page = "https://www.cia.gov/library/publications/the-world-factbook/fields/402.html"
-#     doc = Nokogiri::HTML(open(page))
-#     doc.css("section.reference_content table tr")
-    
+site = "https://www.cia.gov/library/publications/the-world-factbook/fields/402.html"
+#THIS WORKS!
+page = Nokogiri::HTML(open(site))
+countries = page.css("table#fieldListing tr")
+scraped_countries = []
 
-# # #get country 
-# # countries.each_with_index do |c|
-# #   puts c.css("td.country").text.strip
-#   end
+countries.each do |c|
+  country_name = c.css("td.country").text.strip
+  lang = c.css("div.category_data.subfield.text").text
   
-#     doc = Nokogiri::HTML(open("https://www.cia.gov/library/publications/the-world-factbook/fields/402.html"))
-# # get language
-#     doc.css("table#fieldListing tr, td div#field-languages, div.category_data")
-        
-# # puts languages
-#     end
-# #get language
-# # languages = doc.css("table#fieldListing tr, td div#field-languages, div.category_data.subfield.text")
+  puts country_name 
+  puts lang 
 
-# # languages.each do |l|
-# #   puts l.css("td div#field-languages, div.category_data subfield text").text.strip
-#   end
+end

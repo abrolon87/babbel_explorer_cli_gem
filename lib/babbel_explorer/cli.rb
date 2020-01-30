@@ -7,6 +7,7 @@ class BabbelExplorer::CLI
     puts "Welcome to Babbel Explorer!"
     puts "To view country list, type 'explore'"
     puts "Type 'exit' to exit."
+    get_countries
     input = gets.strip.downcase
     if input == 'exit'
       exit
@@ -18,11 +19,18 @@ class BabbelExplorer::CLI
     end
   end
   
-  def country_list #lists countries
-    @countries = ["albania", "bosnia", "serbia", "turkey"] #hardcoded for development 
-    @countries.each_with_index do |country, i|
-    #BabbelExplorer::Country.all.each_with_index do |country, i| FIX SCRAPER
-      puts "#{i+1}. #{country}"
+  def get_countries
+    #BabbelExplorer::Country.new("russia") 
+    @countries = BabbelExplorer::Country.all
+  end
+
+  def country_list #lists countries 
+    
+    @countries = BabbelExplorer::Country.all #["albania", "bosnia", "serbia", "turkey"] hardcoded for development 
+    
+    BabbelExplorer::Country.all.each.with_index(1) do |country, index|
+      
+      puts "#{index}. #{country.name}"
     end
     get_selection
   end
@@ -31,9 +39,10 @@ class BabbelExplorer::CLI
     input = gets.strip 
     
     if input.to_i > 0 && input.to_i < @countries.size
-      puts "#{@countries[input.to_i-1]}" # for now, return country, but later, call language
+      puts "#{country.language}"
+      puts "language coming soon"
     else  
-      puts "invalid selection"
+      puts "invalid selection. Please try again."
     country_list
     end
   end
