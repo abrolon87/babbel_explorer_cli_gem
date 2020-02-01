@@ -3,13 +3,13 @@
 class BabbelExplorer::CLI 
 
   def call 
-    puts "Welcome to Babbel Explorer!"
+    puts "\nWelcome to Babbel Explorer!\n"
     explore 
   end 
   
   def explore
-    puts "To view country list, type 'explore'"
-    puts "Type 'exit' to exit."
+    puts "\nTo view country list, type 'explore'\n"
+    puts "Type 'exit' at anytime to exit."
     
     input = gets.strip.downcase
     if input == 'exit'
@@ -19,7 +19,7 @@ class BabbelExplorer::CLI
       country_list
       get_selection
     else 
-      puts "invalid command."
+      puts "\nInvalid Command!\n"
       call
     end
   end
@@ -30,8 +30,8 @@ class BabbelExplorer::CLI
 
   def country_list #lists countries 
     
-    puts "Choose a country by its corresponding number"
-    
+    puts "\nChoose a country by its corresponding number\n"
+    puts "\n"
     @countries.each_with_index do |country, index|
       if index == 0 
         nil 
@@ -54,14 +54,14 @@ class BabbelExplorer::CLI
   def show_lang_blurb(chosen_country)
     country = @countries[chosen_country]
     #language = country.language
-    puts "Languages spoken in #{country.name}:"
+    puts "\nLanguages spoken in #{country.name}:\n"
     puts "#{country.language}"
     country.clear_all
     explore 
   end
 
   def exit
-    puts "Thank you for using Babbel Explorer!"
+    puts "\nThank you for using Babbel Explorer!\n"
   end
 
 end
