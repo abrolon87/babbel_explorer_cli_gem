@@ -10,7 +10,6 @@ class BabbelExplorer::Scraper
       language = country.css("div.category_data.subfield.text").text
        
       BabbelExplorer::Country.new(name, language)
-      #BabbelExplorer::Language.new(language)  #country.css("div.category_data.subfield.text").text
     end
   end
 

@@ -19,21 +19,23 @@ class BabbelExplorer::CLI
       country_list
       get_selection
     else 
-      puts "invalid command"
+      puts "invalid command."
       call
     end
   end
   
   def get_countries
-    @countries = BabbelExplorer::Country.all
+    @countries = BabbelExplorer::Country.all 
   end
 
   def country_list #lists countries 
     
     puts "Choose a country by its corresponding number"
-    @countries.each.with_index(1) do |country, index|
-      puts  "#{index}. #{country.name}"
+    
+    @countries.each_with_index do |country, index|
+      puts "#{index}. #{country.name}" 
     end
+  
   end
   
   def get_selection
@@ -43,18 +45,14 @@ class BabbelExplorer::CLI
   
   def valid_input(input, data)
     input.to_i <= data.length && input.to_i > 0
-    #   show_lang_blurb
-    # else  
-    #   puts "invalid selection. Please try again."    
-    #   country_list
-    # end
   end
 
   def show_lang_blurb(chosen_country)
-    country = @countries[chosen_country - 1]
-    language = country.language
+    country = @countries[chosen_country] #- 1]
+    #language = country.language
     puts "Languages spoken in #{country.name}:"
     puts "#{country.language}"
+    country.clear_all
     explore 
   end
 
