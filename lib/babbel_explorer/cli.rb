@@ -33,9 +33,13 @@ class BabbelExplorer::CLI
     puts "Choose a country by its corresponding number"
     
     @countries.each_with_index do |country, index|
+      if index == 0 
+        nil 
+      else 
       puts "#{index}. #{country.name}" 
+      end
     end
-  
+    
   end
   
   def get_selection
@@ -48,7 +52,7 @@ class BabbelExplorer::CLI
   end
 
   def show_lang_blurb(chosen_country)
-    country = @countries[chosen_country] #- 1]
+    country = @countries[chosen_country]
     #language = country.language
     puts "Languages spoken in #{country.name}:"
     puts "#{country.language}"
@@ -56,7 +60,6 @@ class BabbelExplorer::CLI
     explore 
   end
 
-   
   def exit
     puts "Thank you for using Babbel Explorer!"
   end

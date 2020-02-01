@@ -8,13 +8,13 @@ Display list of countries
 "Choose a country by its corresponding number"
 
 user sees languages spoken in chosen country
-<!-- countries.each.with_index(1) do |country, i|
+<!-- countries.each.with_index do |country, i|
   puts "#{i}. #{country}
    -->
 
 Classes
   country 
-  language
+  language?
   region(?maybe in a later version?)
   scraper
 
