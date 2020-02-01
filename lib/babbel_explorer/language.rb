@@ -1,8 +1,26 @@
-class BabbelExplorer::Language
-  attr_accessor :name, :country
+#I DONT NEED THIS
 
-  def initialize(name)
-    self.name = name 
-  end
+# class BabbelExplorer::Language
+#   attr_accessor :name, :country
+  
+#   @@all = []
 
-end
+#   def initialize(name)
+#     self.name = name 
+  
+#     add_language 
+#     #save
+#   end
+  
+#   def add_language
+#     country.language << self 
+#   end 
+
+# #   def self.all 
+# #     @@all 
+   
+# #   def save 
+# #     @@all << self 
+# #   end
+
+# end
