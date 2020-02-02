@@ -36,7 +36,7 @@ class BabbelExplorer::CLI
 
   def country_list #lists countries 
     puts "\nChoose a country by its corresponding number or type 'q' to quit".yellow.bold
-    puts "\nScroll down to view country list\n".yellow
+    puts "\nScroll down to view countries\n".yellow
     puts "\n"
     @countries.each_with_index do |country, index|
       if index == 0 
@@ -79,7 +79,7 @@ class BabbelExplorer::CLI
   
   def explore_more
     puts "All done exploring for now? Hit any key to view country list again or type 'exit' to exit.".red
-    @input = gets.strip.downcase 
+    @input = gets.strip 
   end  
   
   def exit
