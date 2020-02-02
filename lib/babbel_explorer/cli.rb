@@ -37,8 +37,9 @@ class BabbelExplorer::CLI
       else 
       puts "#{index}. #{country.name}" .yellow
       end
+      
     end
-    
+    puts "\nScroll to view countries\n".yellow.bold
   end
   
   def get_selection
