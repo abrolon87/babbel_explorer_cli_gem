@@ -11,7 +11,7 @@ class BabbelExplorer::Country
   end
 
   def self.all
-    BabbelExplorer::Scraper.scrape_countries 
+    BabbelExplorer::Scraper.scrape_countries if @@all.empty?
     @@all  #return all countries
   end
   
