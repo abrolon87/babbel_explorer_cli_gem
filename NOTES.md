@@ -14,7 +14,6 @@ user sees languages spoken in chosen country
 
 Classes
   country 
-  language?
   region(?maybe in a later version?)
   scraper
 
@@ -32,3 +31,11 @@ countries.each do |c|
   puts lang 
 
 end
+
+
+Refactoring cli.rb
+
+get_countries
+country_list
+get_selection
+explore_more
