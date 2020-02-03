@@ -1,5 +1,4 @@
 # CLI controller
-
 class BabbelExplorer::CLI 
 
   def call 
@@ -34,7 +33,7 @@ class BabbelExplorer::CLI
     @countries = BabbelExplorer::Country.all 
   end
 
-  def country_list #lists countries 
+  def country_list  
     puts "\nChoose a country by its corresponding number or type 'q' to quit".yellow.bold
     puts "\nScroll down to view countries\n".yellow
     puts "\n"
@@ -72,7 +71,6 @@ class BabbelExplorer::CLI
     country = @countries[chosen_country]
     puts "\nLanguages spoken in #{country.name}:".magenta.bold
     puts "#{country.language}".magenta
-    #country.clear_all
     puts "Select another country from the list or type 'q' to quit.".yellow
     get_selection
   end 
