@@ -49,12 +49,18 @@ class BabbelExplorer::CLI
   end
   
   def get_selection
-    chosen_country = gets.strip.to_i
+    chosen_country = gets.strip.to_i 
     if valid_input(chosen_country, @countries)
       show_lang_blurb(chosen_country)
     else
       explore_more
     end
+    # chosen_country = gets.chomp 
+    # if chosen_country.is_a? Integer && chosen_country.to_i > 0 && chosen_country.to_i <= @countries.length
+    #   show_lang_blurb(chosen_country)
+    # else
+    #   explore_more
+    # end
   end
   
   def invalid_input 
