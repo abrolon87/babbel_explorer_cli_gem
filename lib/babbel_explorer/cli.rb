@@ -55,24 +55,11 @@ class BabbelExplorer::CLI
       chosen_country = chosen_country.to_i 
       show_lang_blurb(chosen_country)
     elsif chosen_country == 'q'
-      
       explore_more
     else  
       puts "Invalid command! Please try again.".red.bold
       get_selection
     end
-    # chosen_country = gets.strip.to_i 
-    # if valid_input(chosen_country, @countries)
-    #   show_lang_blurb(chosen_country)
-    # else
-    #   explore_more
-    # end
-    # chosen_country = gets.chomp 
-    # if chosen_country.is_a? Integer && chosen_country.to_i > 0 && chosen_country.to_i <= @countries.length
-    #   show_lang_blurb(chosen_country)
-    # else
-    #   explore_more
-    # end
   end
   
   def invalid_input 
@@ -81,9 +68,9 @@ class BabbelExplorer::CLI
     menu
   end
 
-  def valid_input(input, data)
-    input.to_i <= data.length && input.to_i > 0
-  end
+  # def valid_input(input, data)
+  #   input.to_i <= data.length && input.to_i > 0
+  # end
 
   def show_lang_blurb(chosen_country)
     country = @countries[chosen_country]
