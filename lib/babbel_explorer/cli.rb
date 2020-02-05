@@ -54,7 +54,7 @@ class BabbelExplorer::CLI
     if chosen_country.to_i.between?(1, 241) #> 0 && chosen_country.to_i <= @countries.length
       chosen_country = chosen_country.to_i 
       show_lang_blurb(chosen_country)
-    elsif chosen_country == 'q'
+    elsif chosen_country == 'q' #|| 'exit'
       explore_more
     else  
       puts "Invalid command! Please try again.".red.bold
