@@ -17,5 +17,5 @@ class BabbelExplorer::Country
   def save 
     @@all << self
   end 
-
+  
 end

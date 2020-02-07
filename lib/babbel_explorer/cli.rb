@@ -45,7 +45,6 @@ class BabbelExplorer::CLI
       end
     end
     puts "\nScroll up to view countries\n".yellow
-    
   end
   
   def get_selection
@@ -82,11 +81,11 @@ class BabbelExplorer::CLI
   
   def explore_more
     puts "All done exploring for now? Hit any key to view country list again or type 'exit' to exit.".red
-    @input = gets.strip 
+    @input = gets.strip.downcase #this needs to be visible by explore method
   end  
   
   def exit
     puts "\nThank you for using Babbel Explorer!\n".cyan.bold
   end
-
+  
 end
