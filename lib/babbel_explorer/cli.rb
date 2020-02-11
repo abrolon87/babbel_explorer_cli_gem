@@ -9,29 +9,64 @@ class BabbelExplorer::CLI
   def menu 
     puts "\nTo view country list, type 'explore'\n".green
     puts "Type 'exit' to exit.".green
+    
     input = gets.strip
     case input.downcase 
-    when "explore"
-      explore
-    when "exit"
-      exit
-    else invalid_input 
+      when "explore"
+        explore
+      when "exit"
+        exit
+      else 
+        invalid_input 
     end
   end 
   
+
   def explore
-    @input = ""
-    until @input == "exit"
+    input = ""
+    unless input == "q"
       get_countries
       country_list
       get_selection
     end 
-    exit 
+    explore_more
   end
-  
+
+
+  # def explore
+  #   input = ""
+  #   until input == "exit"
+  #     get_countries
+  #     country_list
+  #     get_selection
+  #   end 
+  #   exit 
+  # end
+ 
   def get_countries
+    # @countries = BabbelExplorer::Scraper.scrape_countries
+    # countries
+    # if BabbelExplorer::Country.all.empty?
+    #   countries.each do |country|
+        
+    #     BabbelExplorer::Country.new(country[:name], country[:language])
+    #   end
+    # end
     @countries = BabbelExplorer::Country.all 
+    
   end
+  # def get_countries
+  #   countries = BabbelExplorer::Scraper.scrape_countries
+  #   countries.shift
+  #   if BabbelExplorer::Country.all.empty?
+  #     countries.each do |country|
+        
+  #       BabbelExplorer::Country.new(country[:name], country[:language])
+  #     end
+  #   end
+  #     #@countries = BabbelExplorer::Country.all 
+    
+  # end
 
   def country_list  
     puts "\nChoose a country by its corresponding number or type 'q' to quit".yellow.bold
@@ -41,7 +76,7 @@ class BabbelExplorer::CLI
       if index == 0 
         nil 
       else 
-      puts "#{index}. #{country.name}" .yellow
+      puts "#{index}. #{country.name}".yellow
       end
     end
     puts "\nScroll up to view countries\n".yellow
@@ -81,11 +116,17 @@ class BabbelExplorer::CLI
   
   def explore_more
     puts "All done exploring for now? Hit any key to view country list again or type 'exit' to exit.".red
-    @input = gets.strip.downcase #this needs to be visible by explore method
+    input = gets.strip.downcase 
+    if input == 'exit'
+      exit
+    else 
+      explore
+    end
   end  
   
   def exit
     puts "\nThank you for using Babbel Explorer!\n".cyan.bold
+    abort 
   end
   
 end
