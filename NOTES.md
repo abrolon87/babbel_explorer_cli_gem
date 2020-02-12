@@ -39,3 +39,35 @@ get_countries
 country_list
 get_selection
 explore_more
+
+
+skteches:
+
+create into hash?
+{:name => "name", :language => "language"}
+
+check for valid input
+<!-- def valid_input(input, data)
+  input.to_i <= data.length && input.to_i > 0
+end -->
+
+# def get_countries
+  #   countries = BabbelExplorer::Scraper.scrape_countries
+  #   countries.shift
+  #   if BabbelExplorer::Country.all.empty?
+  #     countries.each do |country|
+  #       BabbelExplorer::Country.new(country[:name], country[:language])
+  #     end
+  #   end
+  #     #@countries = BabbelExplorer::Country.all 
+  # end
+
+ # def explore
+  #   input = ""
+  #   until input == "exit"
+  #     get_countries
+  #     country_list
+  #     get_selection
+  #   end                 #i want a confirmation message to the user before exiting 
+  #   exit 
+  # end

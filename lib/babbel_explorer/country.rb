@@ -6,16 +6,12 @@ class BabbelExplorer::Country
   def initialize(name, language)
     @name = name 
     @language = language
-    save
+    @@all << self
   end
 
   def self.all
-    BabbelExplorer::Scraper.scrape_countries if @@all.empty?
+    #BabbelExplorer::Scraper.scrape_countries if @@all.empty?
     @@all  
   end
-  
-  def save 
-    @@all << self
-  end 
-  
+    
 end

@@ -1,6 +1,6 @@
 # CLI controller
 class BabbelExplorer::CLI 
-
+  
   def call 
     puts "\nWelcome to Babbel Explorer!\n".cyan.bold
     menu
@@ -21,7 +21,6 @@ class BabbelExplorer::CLI
     end
   end 
   
-
   def explore
     input = ""
     unless input == "q"
@@ -32,51 +31,19 @@ class BabbelExplorer::CLI
     explore_more
   end
 
-
-  # def explore
-  #   input = ""
-  #   until input == "exit"
-  #     get_countries
-  #     country_list
-  #     get_selection
-  #   end 
-  #   exit 
-  # end
- 
   def get_countries
-    # @countries = BabbelExplorer::Scraper.scrape_countries
-    # countries
-    # if BabbelExplorer::Country.all.empty?
-    #   countries.each do |country|
-        
-    #     BabbelExplorer::Country.new(country[:name], country[:language])
-    #   end
-    # end
-    @countries = BabbelExplorer::Country.all 
-    
+    BabbelExplorer::Scraper.scrape_countries if BabbelExplorer::Country.all.empty?
   end
-  # def get_countries
-  #   countries = BabbelExplorer::Scraper.scrape_countries
-  #   countries.shift
-  #   if BabbelExplorer::Country.all.empty?
-  #     countries.each do |country|
-        
-  #       BabbelExplorer::Country.new(country[:name], country[:language])
-  #     end
-  #   end
-  #     #@countries = BabbelExplorer::Country.all 
-    
-  # end
-
+  
   def country_list  
     puts "\nChoose a country by its corresponding number or type 'q' to quit".yellow.bold
     puts "\nScroll down to view countries\n".yellow
     puts "\n"
-    @countries.each_with_index do |country, index|
+    BabbelExplorer::Country.all.each_with_index do |country, index|
       if index == 0 
         nil 
       else 
-      puts "#{index}. #{country.name}".yellow
+        puts "#{index}. #{country.name}".yellow
       end
     end
     puts "\nScroll up to view countries\n".yellow
@@ -102,12 +69,9 @@ class BabbelExplorer::CLI
     menu
   end
 
-  # def valid_input(input, data)
-  #   input.to_i <= data.length && input.to_i > 0
-  # end
-
   def show_lang_blurb(chosen_country)
-    country = @countries[chosen_country]
+    countries = BabbelExplorer::Country.all
+    country = countries[chosen_country]
     puts "\nLanguages spoken in #{country.name}:".magenta.bold
     puts "#{country.language}".magenta
     puts "Select another country from the list or type 'q' to quit.".yellow
