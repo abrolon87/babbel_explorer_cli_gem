@@ -9,7 +9,6 @@ class BabbelExplorer::CLI
   def menu 
     puts "\nTo view country list, type 'explore'\n".green
     puts "Type 'exit' to exit.".green
-    
     input = gets.strip
     case input.downcase 
       when "explore"
@@ -22,12 +21,12 @@ class BabbelExplorer::CLI
   end 
   
   def explore
-    input = ""
-    unless input == "q"
+    #input = ""
+    #unless input == "q"
       get_countries
       country_list
       get_selection
-    end 
+    #end 
     explore_more
   end
 
@@ -39,6 +38,7 @@ class BabbelExplorer::CLI
     puts "\nChoose a country by its corresponding number or type 'q' to quit".yellow.bold
     puts "\nScroll down to view countries\n".yellow
     puts "\n"
+    
     BabbelExplorer::Country.all.each_with_index do |country, index|
       if index == 0 
         nil 
@@ -51,11 +51,13 @@ class BabbelExplorer::CLI
   
   def get_selection
     chosen_country = gets.strip
-
-    if chosen_country.to_i.between?(1, 241) #> 0 && chosen_country.to_i <= @countries.length
+    max_countries = BabbelExplorer::Country.all.length - 1
+    
+    if chosen_country.to_i > 0 && chosen_country.to_i <= max_countries
+    #if chosen_country.to_i.between?(1, max_countries.to_i) 
       chosen_country = chosen_country.to_i 
       show_lang_blurb(chosen_country)
-    elsif chosen_country == 'q' #|| 'exit'
+    elsif chosen_country == 'q'             # || 'exit'
       explore_more
     else  
       puts "Invalid command! Please try again.".red.bold

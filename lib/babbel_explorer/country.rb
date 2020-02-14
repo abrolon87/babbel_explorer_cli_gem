@@ -1,5 +1,5 @@
 class BabbelExplorer::Country
-  attr_accessor :name, :language 
+  attr_reader :name, :language 
 
   @@all = []
   
@@ -10,8 +10,7 @@ class BabbelExplorer::Country
   end
 
   def self.all
-    #BabbelExplorer::Scraper.scrape_countries if @@all.empty?
     @@all  
   end
-    
+  
 end
