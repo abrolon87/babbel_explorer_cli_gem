@@ -8,14 +8,14 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Languages by Country Gem}
   #spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "https://github.com/abrolon87/babbel_explorer"
+  spec.homepage      = "https://github.com/abrolon87/babbel_explorer_cli_gem"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/abrolon87/babbel_explorer"
+  spec.metadata["source_code_uri"] = spec.homepage
   #spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
