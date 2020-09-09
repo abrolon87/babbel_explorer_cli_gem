@@ -53,11 +53,13 @@ class BabbelExplorer::CLI
     chosen_country = gets.strip
     max_countries = BabbelExplorer::Country.all.length - 1
     
-    if chosen_country.to_i > 0 && chosen_country.to_i <= max_countries
-    #if chosen_country.to_i.between?(1, max_countries.to_i) 
+    if chosen_country.to_i == 238 
+      puts "\nThere are more than 7,000 languages spoken in the world. Try selecting a specific country:\n".red
+      get_selection
+    elsif chosen_country.to_i > 0 && chosen_country.to_i <= max_countries 
       chosen_country = chosen_country.to_i 
       show_lang_blurb(chosen_country)
-    elsif chosen_country == 'q'             # || 'exit'
+    elsif chosen_country == 'q'             
       explore_more
     else  
       puts "Invalid command! Please try again.".red.bold
