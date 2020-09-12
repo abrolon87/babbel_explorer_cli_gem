@@ -2,6 +2,16 @@
 
 Welcome to Babbel Explorer! This Ruby gem is for people who are interested in exploring the langauges of the world. The user can choose a country and view the language data of that country.
 
+# Clone
+
+Clone this repo
+
+run bundle install
+
+run bin/babbel_explorer
+
+Explore!
+
 ## Installation
 
 Add this line to your application's Gemfile:
