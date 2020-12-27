@@ -1,6 +1,6 @@
 # BabbelExplorer
 
-Welcome to Babbel Explorer! This Ruby gem is for people who are interested in exploring the langauges of the world. The user can choose a country and view the language data of that country. The data is scraped from the CIA World Factbook website which you can find [here](https://www.cia.gov/library/publications/the-world-factbook/)
+Welcome to Babbel Explorer! This Ruby gem is for people who are interested in exploring the langauges of the world. The user can choose a country and view the language data of that country. The data is scraped from the CIA World Factbook website which you can find [here](https://www.cia.gov/library/publications/the-world-factbook/).
 
 # Clone
 
