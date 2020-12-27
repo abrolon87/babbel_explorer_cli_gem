@@ -21,12 +21,9 @@ class BabbelExplorer::CLI
   end 
   
   def explore
-    #input = ""
-    #unless input == "q"
-      get_countries
-      country_list
-      get_selection
-    #end 
+    get_countries
+    country_list
+    get_selection
     explore_more
   end
 
