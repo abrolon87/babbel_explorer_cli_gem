@@ -1,7 +1,7 @@
 class BabbelExplorer::Scraper
   
   def self.scrape_countries 
-    doc = Nokogiri::HTML(open("https://www.cia.gov/library/publications/the-world-factbook/fields/402.html")) 
+    doc = Nokogiri::HTML(URI.open("https://www.cia.gov/library/publications/the-world-factbook/fields/402.html")) 
     
     countries = doc.css("table#fieldListing tr")
     
