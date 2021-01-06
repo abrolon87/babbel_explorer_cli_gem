@@ -12,6 +12,7 @@ class BabbelExplorer::CLI
     input = gets.strip
     case input.downcase 
       when "explore"
+        #remove this after scraper is updated
         puts "We're sorry. The website that we scrape our data from has recently changed. Please check back soon for updates.".red.bold
         abort
         explore
