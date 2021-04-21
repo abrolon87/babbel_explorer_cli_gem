@@ -9,12 +9,11 @@ class BabbelExplorer::CLI
   def menu 
     puts "\nTo view country list, type 'explore'\n".green
     puts "Type 'exit' to exit.".green
+    
     input = gets.strip
+
     case input.downcase 
       when "explore"
-        #remove this after scraper is updated
-        puts "We're sorry. The website that we scrape our data from has recently changed. Please check back soon for updates.".red.bold
-        abort
         explore
       when "exit"
         exit
@@ -39,9 +38,9 @@ class BabbelExplorer::CLI
     puts "\nScroll down to view countries\n".yellow
     puts "\n"
     
-    BabbelExplorer::Country.all.each_with_index do |country, index|
-      if index == 0 
-        nil 
+    BabbelExplorer::Country.all.each.with_index(1) do |country, index|
+      if nil
+        next
       else 
         puts "#{index}. #{country.name}".yellow
       end
@@ -51,12 +50,9 @@ class BabbelExplorer::CLI
   
   def get_selection
     chosen_country = gets.strip
-    max_countries = BabbelExplorer::Country.all.length - 1
+    max_countries = BabbelExplorer::Country.all.length 
     
-    if chosen_country.to_i == 238 
-      puts "\nThere are more than 7,000 languages spoken in the world. Try selecting a specific country:\n".red
-      get_selection
-    elsif chosen_country.to_i > 0 && chosen_country.to_i <= max_countries 
+    if chosen_country.to_i > 0 && chosen_country.to_i <= max_countries 
       chosen_country = chosen_country.to_i 
       show_lang_blurb(chosen_country)
     elsif chosen_country == 'q'             
@@ -70,21 +66,25 @@ class BabbelExplorer::CLI
   def invalid_input 
     puts "\nInvalid Command!".red.bold
     puts "Please try again\n".red
+
     menu
   end
 
   def show_lang_blurb(chosen_country)
     countries = BabbelExplorer::Country.all
-    country = countries[chosen_country]
+    country = countries[chosen_country-1]
+
     puts "\nLanguages spoken in #{country.name}:".magenta.bold
     puts "#{country.language}".magenta
     puts "Select another country from the list or type 'q' to quit.".yellow
+
     get_selection
   end 
   
   def explore_more
     puts "All done exploring for now? Hit any key to view country list again or type 'exit' to exit.".red
     input = gets.strip.downcase 
+
     if input == 'exit'
       exit
     else 
